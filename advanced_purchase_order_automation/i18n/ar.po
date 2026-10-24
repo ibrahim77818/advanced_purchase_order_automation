@@ -1,0 +1,839 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-24 18:01+0000\n"
+"PO-Revision-Date: 2026-10-24 18:01+0000\n"
+"Last-Translator: Ibrahim Yahia\n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "%(ok)s processed, %(skip)s skipped, %(ko)s failed."
+msgstr "تمت معالجة %(ok)s، وتم تخطي %(skip)s، وفشل %(ko)s."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "%(order)s could not be confirmed (state: %(state)s)."
+msgstr "تعذّر تأكيد %(order)s (الحالة: %(state)s)."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "%(product)s is tracked by lots/serial numbers. Enter them on %(picking)s, or run the batch wizard with 'Generate Lot/Serial Numbers' enabled."
+msgstr "يتم تتبع %(product)s بأرقام الدفعات/الأرقام التسلسلية. أدخلها في %(picking)s، أو شغّل معالج المعالجة الجماعية مع تفعيل خيار 'توليد أرقام الدفعات/الأرقام التسلسلية'."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "%s is being processed by another user. Try again in a moment."
+msgstr "تتم معالجة %s حاليًا بواسطة مستخدم آخر. حاول مرة أخرى بعد قليل."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "%s requires approval by a Purchase Administrator before it can be processed."
+msgstr "يتطلب %s موافقة مسؤول المشتريات قبل أن تتم معالجته."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "%s service line(s) marked as received."
+msgstr "تم تعليم %s من بنود الخدمات كمستلمة."
+
+#. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
+msgid "<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" groups=\"base.group_multi_company\"/>"
+msgstr "<span class=\"fa fa-lg fa-building-o\" title=\"القيم المحددة هنا خاصة بكل شركة.\" groups=\"base.group_multi_company\"/>"
+
+#. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
+msgid "<span class=\"o_form_label\">Journals</span>"
+msgstr "<span class=\"o_form_label\">اليوميات</span>"
+
+#. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.purchase_order_form_inherit_automation
+msgid "<strong>Procurement automation failed: </strong>"
+msgstr "<strong>فشلت أتمتة المشتريات: </strong>"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__purchase_automation_wizard__scenario__bill_draft model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__res_company__poa_scenario__bill_draft
+msgid "A - Confirm, Receive, Draft Bill"
+msgstr "أ - تأكيد، استلام، فاتورة مسودة"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "All changes of this run were rolled back for this order. Fix the issue and run the automation again from the list view action."
+msgstr "تم التراجع عن جميع تغييرات هذا التشغيل لهذا الأمر. قم بمعالجة المشكلة ثم شغّل الأتمتة مرة أخرى من إجراءات عرض القائمة."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/wizard/purchase_automation_wizard.py:0
+#, python-format
+msgid "All orders were processed without errors."
+msgstr "تمت معالجة جميع الأوامر دون أخطاء."
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__purchase_automation_wizard__backorder_policy__always model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__res_company__poa_backorder_policy__always
+msgid "Always create backorders for remainders"
+msgstr "إنشاء طلبات متأخرة للكميات المتبقية دائمًا"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,help:advanced_purchase_order_automation.field_purchase_automation_wizard__warehouse_id
+msgid "Applies to orders still in RFQ state: their receipt is created in this warehouse. Leave empty to keep each order's operation type."
+msgstr "ينطبق على الأوامر التي ما زالت في حالة طلب عرض سعر: يتم إنشاء الاستلام في هذا المستودع. اتركه فارغًا للإبقاء على نوع العملية الخاص بكل أمر."
+
+#. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.purchase_order_filter_inherit_automation
+msgid "Automated"
+msgstr "مؤتمت"
+
+#. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.purchase_order_filter_inherit_automation model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.purchase_order_search_inherit_automation
+msgid "Automation Failed"
+msgstr "فشلت الأتمتة"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_res_company__poa_scenario model:ir.model.fields,field_description:advanced_purchase_order_automation.field_res_config_settings__poa_scenario
+msgid "Automation Scenario"
+msgstr "سيناريو الأتمتة"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_order__poa_state
+msgid "Automation Status"
+msgstr "حالة الأتمتة"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__purchase_automation_wizard__scenario__bill_posted model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__res_company__poa_scenario__bill_posted
+msgid "B - Confirm, Receive, Posted Bill"
+msgstr "ب - تأكيد، استلام، فاتورة مرحّلة"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Backorder(s) kept open: %s."
+msgstr "طلبات متأخرة بقيت مفتوحة: %s."
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__backorder_policy model:ir.model.fields,field_description:advanced_purchase_order_automation.field_res_company__poa_backorder_policy model:ir.model.fields,field_description:advanced_purchase_order_automation.field_res_config_settings__poa_backorder_policy
+msgid "Backorders"
+msgstr "الطلبات المتأخرة"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,help:advanced_purchase_order_automation.field_res_company__poa_payment_journal_id model:ir.model.fields,help:advanced_purchase_order_automation.field_res_config_settings__poa_payment_journal_id
+msgid "Bank or cash journal used to pay bills in scenario C."
+msgstr "يومية البنك أو النقد المستخدمة لسداد الفواتير في السيناريو ج."
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__bill_date model:ir.model.fields,field_description:advanced_purchase_order_automation.field_res_company__poa_bill_date_source model:ir.model.fields,field_description:advanced_purchase_order_automation.field_res_config_settings__poa_bill_date_source
+msgid "Bill Date"
+msgstr "تاريخ الفاتورة"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__bill_journal_id
+msgid "Bill Journal"
+msgstr "يومية الفواتير"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Bill journal %(journal)s does not belong to %(company)s."
+msgstr "يومية الفواتير %(journal)s لا تنتمي إلى %(company)s."
+
+#. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
+msgid ""
+"Bill journal (optional) and the bank / cash journal used to pay\n"
+"                                bills in scenario C"
+msgstr ""
+"يومية فواتير الموردين (اختيارية) ويومية البنك / النقد المستخدمة لسداد\n"
+"                                الفواتير في السيناريو ج"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Bill(s) %s are not fully reconciled after payment."
+msgstr "الفاتورة/الفواتير %s غير مسوّاة بالكامل بعد السداد."
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__res_company__poa_on_confirm_error__raise
+msgid "Block the confirmation and show the error"
+msgstr "منع التأكيد وعرض الخطأ"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__purchase_automation_wizard__scenario__bill_paid model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__res_company__poa_scenario__bill_paid
+msgid "C - Confirm, Receive, Posted Bill, Payment"
+msgstr "ج - تأكيد، استلام، فاتورة مرحّلة، دفع"
+
+#. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.purchase_automation_wizard_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.purchase_automation_wizard_form
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model,name:advanced_purchase_order_automation.model_res_company
+msgid "Companies"
+msgstr "الشركات"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model,name:advanced_purchase_order_automation.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات"
+
+#. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
+msgid "Confirm, receive and bill purchase orders automatically"
+msgstr "تأكيد أوامر الشراء واستلامها وفوترتها تلقائيًا"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_account_bank_statement_line__poa_generated model:ir.model.fields,field_description:advanced_purchase_order_automation.field_account_move__poa_generated model:ir.model.fields,field_description:advanced_purchase_order_automation.field_account_payment__poa_generated
+msgid "Created by Purchase Automation"
+msgstr "أنشئت بواسطة أتمتة المشتريات"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__purchase_automation_wizard__state__done
+msgid "Done"
+msgstr "تم"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__purchase_automation_wizard__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/wizard/purchase_automation_wizard.py:0
+#, python-format
+msgid "Error"
+msgstr "الخطأ"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__purchase_order__poa_state__failed model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.purchase_automation_wizard_form
+msgid "Failed"
+msgstr "فشل"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__failed_count
+msgid "Failed Count"
+msgstr "عدد الفاشلة"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/wizard/purchase_automation_wizard.py:0 model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__failed_ids
+#, python-format
+msgid "Failed Orders"
+msgstr "الأوامر الفاشلة"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Failed: %s (see chatter)."
+msgstr "الفاشلة: %s (راجع سجل المحادثات)."
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__auto_lots
+msgid "Generate Lot/Serial Numbers"
+msgstr "توليد أرقام الدفعات/الأرقام التسلسلية"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,help:advanced_purchase_order_automation.field_purchase_automation_wizard__auto_lots
+msgid "Generate lot / serial numbers (<PO>-<product code>-0001...) for tracked products that have none on the receipt."
+msgstr "توليد أرقام الدفعات / الأرقام التسلسلية (<PO>-<product code>-0001...) للمنتجات المتتبعة التي لا تحتوي على أرقام في الاستلام."
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Journal %s has no outgoing payment method."
+msgstr "اليومية %s لا تحتوي على طريقة دفع صادرة."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Journal %s is not a purchase journal."
+msgstr "اليومية %s ليست يومية مشتريات."
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model,name:advanced_purchase_order_automation.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__res_company__poa_on_confirm_error__log
+msgid "Keep the PO confirmed and log the failure in the chatter"
+msgstr "إبقاء أمر الشراء مؤكدًا وتسجيل الفشل في سجل المحادثات"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_order__poa_last_error
+msgid "Last Automation Error"
+msgstr "آخر خطأ في الأتمتة"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_order__poa_last_run
+msgid "Last Automation Run"
+msgstr "آخر تشغيل للأتمتة"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,help:advanced_purchase_order_automation.field_purchase_automation_wizard__bill_date
+msgid "Leave empty to follow the company rule."
+msgstr "اتركه فارغًا لاتباع قاعدة الشركة."
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,help:advanced_purchase_order_automation.field_purchase_automation_wizard__payment_date
+msgid "Leave empty to use the bill date."
+msgstr "اتركه فارغًا لاستخدام تاريخ الفاتورة."
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,help:advanced_purchase_order_automation.field_purchase_automation_wizard__bill_journal_id
+msgid "Leave empty to use the company setting / default purchase journal."
+msgstr "اتركه فارغًا لاستخدام إعداد الشركة / يومية المشتريات الافتراضية."
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,help:advanced_purchase_order_automation.field_purchase_automation_wizard__payment_journal_id
+msgid "Leave empty to use the company's automation payment journal."
+msgstr "اتركه فارغًا لاستخدام يومية الدفع المحددة للأتمتة في الشركة."
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,help:advanced_purchase_order_automation.field_res_company__poa_bill_journal_id model:ir.model.fields,help:advanced_purchase_order_automation.field_res_config_settings__poa_bill_journal_id
+msgid "Leave empty to use the default purchase journal."
+msgstr "اتركه فارغًا لاستخدام يومية المشتريات الافتراضية."
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,help:advanced_purchase_order_automation.field_res_company__poa_enabled model:ir.model.fields,help:advanced_purchase_order_automation.field_res_config_settings__poa_enabled
+msgid "Master switch for procurement automation in this company."
+msgstr "المفتاح الرئيسي لتفعيل أتمتة المشتريات في هذه الشركة."
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__multi_company
+msgid "Multi Company"
+msgstr "شركات متعددة"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__purchase_automation_wizard__backorder_policy__never model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__res_company__poa_backorder_policy__never
+msgid "Never create backorders (cancel remainders)"
+msgstr "عدم إنشاء طلبات متأخرة أبدًا (إلغاء الكميات المتبقية)"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "No open receipt was found for %(order)s although these products are not fully received: %(products)s."
+msgstr "لم يتم العثور على استلام مفتوح لـ %(order)s رغم أن هذه المنتجات لم تُستلم بالكامل: %(products)s."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "No vendor bill was created for %s."
+msgstr "لم يتم إنشاء فاتورة مورد لـ %s."
+
+#. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.purchase_automation_wizard_form
+msgid "Nothing to do"
+msgstr "لا يوجد ما يُنفّذ"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_res_company__poa_on_confirm_error model:ir.model.fields,field_description:advanced_purchase_order_automation.field_res_config_settings__poa_on_confirm_error
+msgid "On Confirmation Error"
+msgstr "عند حدوث خطأ أثناء التأكيد"
+
+#. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
+msgid ""
+"Only Purchase Administrators trigger the automation; other\n"
+"                                users confirm orders the standard way."
+msgstr ""
+"مسؤولو المشتريات فقط يشغّلون الأتمتة؛ أما بقية\n"
+"                                المستخدمين فيؤكدون الأوامر بالطريقة المعتادة."
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,help:advanced_purchase_order_automation.field_res_company__poa_restrict_to_managers model:ir.model.fields,help:advanced_purchase_order_automation.field_res_config_settings__poa_restrict_to_managers
+msgid "Only members of Purchase / Administrator may trigger the automation. Other users confirm orders the standard way."
+msgstr "يمكن لأعضاء مجموعة المشتريات / المسؤول فقط تشغيل الأتمتة. أما بقية المستخدمين فيؤكدون الأوامر بالطريقة المعتادة."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Only purchase users can run the procurement automation."
+msgstr "يمكن لمستخدمي المشتريات فقط تشغيل أتمتة المشتريات."
+
+#. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.purchase_automation_wizard_form
+msgid "Open Failed Orders"
+msgstr "فتح الأوامر الفاشلة"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Operation type %s does not allow creating new lots/serial numbers."
+msgstr "نوع العملية %s لا يسمح بإنشاء أرقام دفعات/أرقام تسلسلية جديدة."
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,help:advanced_purchase_order_automation.field_res_company__poa_payment_method_line_id model:ir.model.fields,help:advanced_purchase_order_automation.field_res_config_settings__poa_payment_method_line_id
+msgid "Optional outgoing payment method. Defaults to the journal's first one."
+msgstr "طريقة دفع صادرة اختيارية. الافتراضي هو أول طريقة في اليومية."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/wizard/purchase_automation_wizard.py:0
+#, python-format
+msgid "Order"
+msgstr "الأمر"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Order Confirmation"
+msgstr "تأكيد الأمر"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__order_count
+msgid "Order Count"
+msgstr "عدد الأوامر"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__res_company__poa_bill_date_source__order
+msgid "Order Date"
+msgstr "تاريخ الأمر"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Order approved."
+msgstr "تمت الموافقة على الأمر."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Order confirmed."
+msgstr "تم تأكيد الأمر."
+
+#. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.purchase_automation_wizard_form
+msgid "Overrides"
+msgstr "التجاوزات"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__payment_date
+msgid "Payment Date"
+msgstr "تاريخ الدفع"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__payment_journal_id model:ir.model.fields,field_description:advanced_purchase_order_automation.field_res_company__poa_payment_journal_id model:ir.model.fields,field_description:advanced_purchase_order_automation.field_res_config_settings__poa_payment_journal_id
+msgid "Payment Journal"
+msgstr "يومية الدفع"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__payment_method_line_id model:ir.model.fields,field_description:advanced_purchase_order_automation.field_res_company__poa_payment_method_line_id model:ir.model.fields,field_description:advanced_purchase_order_automation.field_res_config_settings__poa_payment_method_line_id
+msgid "Payment Method"
+msgstr "طريقة الدفع"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Payment Registration"
+msgstr "تسجيل الدفعة"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Payment journal %(journal)s does not belong to %(company)s."
+msgstr "يومية الدفع %(journal)s لا تنتمي إلى %(company)s."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Payment registered (%s)."
+msgstr "تم تسجيل الدفعة (%s)."
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__purchase_order__poa_state__done model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.purchase_automation_wizard_form
+msgid "Processed"
+msgstr "تمت المعالجة"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__processed_count
+msgid "Processed Count"
+msgstr "عدد المعالجة"
+
+#. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
+msgid "Procurement Automation"
+msgstr "أتمتة المشتريات"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0 model:ir.model.fields,field_description:advanced_purchase_order_automation.field_res_company__poa_enabled model:ir.model.fields,field_description:advanced_purchase_order_automation.field_res_config_settings__poa_enabled
+#, python-format
+msgid "Purchase Automation"
+msgstr "أتمتة المشتريات"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/wizard/purchase_automation_wizard.py:0
+#, python-format
+msgid "Purchase Automation - Result"
+msgstr "أتمتة المشتريات - النتيجة"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model,name:advanced_purchase_order_automation.model_purchase_order
+msgid "Purchase Order"
+msgstr "أمر الشراء"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model,name:advanced_purchase_order_automation.model_purchase_automation_wizard
+msgid "Purchase Order Automation - Batch Run"
+msgstr "أتمتة أوامر الشراء - تشغيل جماعي"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__purchase_ids
+msgid "Purchase Orders"
+msgstr "أوامر الشراء"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Purchase automation completed."
+msgstr "اكتملت أتمتة المشتريات."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid ""
+"Purchase automation failed for %(order)s during %(step)s:\n"
+"%(error)s"
+msgstr ""
+"فشلت أتمتة المشتريات لـ %(order)s أثناء %(step)s:\n"
+"%(error)s"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Purchase automation failed."
+msgstr "فشلت أتمتة المشتريات."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Purchase automation is disabled for company %(company)s. Enable it in Purchase > Configuration > Settings."
+msgstr "أتمتة المشتريات معطّلة للشركة %(company)s. قم بتفعيلها من المشتريات > التهيئة > الإعدادات."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Purchase automation is restricted to Purchase Administrators for %(company)s."
+msgstr "أتمتة المشتريات مقتصرة على مسؤولي المشتريات في %(company)s."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Receipt %(picking)s could not be validated automatically%(detail)s. It probably requires a manual step (quality check, lot entry, ...)."
+msgstr "تعذّر تصديق الاستلام %(picking)s تلقائيًا%(detail)s. ربما يتطلب خطوة يدوية (فحص جودة، إدخال دفعات، ...)."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Receipt %s validated."
+msgstr "تم تصديق الاستلام %s."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Receipt Validation"
+msgstr "تصديق الاستلام"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__res_company__poa_bill_date_source__receipt
+msgid "Receipt Validation Date"
+msgstr "تاريخ تصديق الاستلام"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__warehouse_id
+msgid "Receive In Warehouse"
+msgstr "الاستلام في المستودع"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_res_company__poa_restrict_to_managers model:ir.model.fields,field_description:advanced_purchase_order_automation.field_res_config_settings__poa_restrict_to_managers
+msgid "Restrict to Purchase Managers"
+msgstr "قصر الصلاحية على مديري المشتريات"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__result_html
+msgid "Result Html"
+msgstr "نتيجة HTML"
+
+#. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.purchase_automation_wizard_form
+msgid "Run Automation"
+msgstr "تشغيل الأتمتة"
+
+#. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.purchase_automation_wizard_form
+msgid "Run Procurement Automation"
+msgstr "تشغيل أتمتة المشتريات"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.actions.server,name:advanced_purchase_order_automation.action_server_purchase_automation_run
+msgid "Run Procurement Automation (Company Defaults)"
+msgstr "تشغيل أتمتة المشتريات (إعدادات الشركة الافتراضية)"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.actions.act_window,name:advanced_purchase_order_automation.action_purchase_automation_wizard
+msgid "Run Procurement Automation..."
+msgstr "تشغيل أتمتة المشتريات..."
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_res_company__poa_trigger_on_confirm model:ir.model.fields,field_description:advanced_purchase_order_automation.field_res_config_settings__poa_trigger_on_confirm
+msgid "Run on PO Confirmation"
+msgstr "التشغيل عند تأكيد أمر الشراء"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,help:advanced_purchase_order_automation.field_res_company__poa_trigger_on_confirm model:ir.model.fields,help:advanced_purchase_order_automation.field_res_config_settings__poa_trigger_on_confirm
+msgid "Run the automation automatically when a purchase order is confirmed (or approved, when double validation applies)."
+msgstr "تشغيل الأتمتة تلقائيًا عند تأكيد أمر الشراء (أو اعتماده عند تطبيق الموافقة على مستويين)."
+
+#. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
+msgid ""
+"Run the scenario as soon as an order is confirmed or approved.\n"
+"                                When off, use the \"Run Procurement Automation\" actions in the list view."
+msgstr ""
+"تشغيل السيناريو فور تأكيد الأمر أو اعتماده.\n"
+"                                عند إيقافه، استخدم إجراءات \"تشغيل أتمتة المشتريات\" في عرض القائمة."
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__scenario model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.purchase_automation_wizard_form model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
+msgid "Scenario"
+msgstr "السيناريو"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Scenario C needs a payment journal. Set one in Purchase settings or in the wizard."
+msgstr "يتطلب السيناريو ج يومية دفع. حددها في إعدادات المشتريات أو في المعالج."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/wizard/purchase_automation_wizard.py:0
+#, python-format
+msgid "Select at least one purchase order."
+msgstr "اختر أمر شراء واحدًا على الأقل."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Serial-tracked lines of %s must have a done quantity of 1."
+msgstr "يجب أن تكون الكمية المنفّذة لكل بند متتبع بالرقم التسلسلي للمنتج %s تساوي 1."
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__skipped_count
+msgid "Skipped Count"
+msgstr "عدد المتخطاة"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,help:advanced_purchase_order_automation.field_account_bank_statement_line__poa_generated model:ir.model.fields,help:advanced_purchase_order_automation.field_account_move__poa_generated model:ir.model.fields,help:advanced_purchase_order_automation.field_account_payment__poa_generated
+msgid "Technical flag: this vendor bill was created by the purchase automation. Only flagged bills are posted / paid automatically when a run is resumed."
+msgstr "مؤشر تقني: تم إنشاء فاتورة المورد هذه بواسطة أتمتة المشتريات. يتم ترحيل / سداد الفواتير المعلّمة فقط تلقائيًا عند استئناف التشغيل."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/res_company.py:0
+#, python-format
+msgid "The automation payment journal must be a bank or cash journal."
+msgstr "يجب أن تكون يومية الدفع الخاصة بالأتمتة يومية بنك أو نقد."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/res_company.py:0
+#, python-format
+msgid "The automation payment method must belong to the payment journal."
+msgstr "يجب أن تنتمي طريقة الدفع الخاصة بالأتمتة إلى يومية الدفع."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/wizard/purchase_automation_wizard.py:0
+#, python-format
+msgid "The selected warehouse/journals belong to another company."
+msgstr "المستودع/اليوميات المحددة تنتمي إلى شركة أخرى."
+
+#. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.purchase_automation_wizard_form
+msgid ""
+"The selection spans several companies: warehouse and journal overrides are\n"
+"                        disabled and each company's own settings apply."
+msgstr ""
+"التحديد يشمل عدة شركات: تجاوزات المستودع واليوميات\n"
+"                        معطّلة وتُطبّق إعدادات كل شركة على أوامرها."
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__res_company__poa_bill_date_source__today
+msgid "Today"
+msgstr "اليوم"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Vendor Bill Creation"
+msgstr "إنشاء فاتورة المورد"
+
+#. module: advanced_purchase_order_automation
+#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_res_company__poa_bill_journal_id model:ir.model.fields,field_description:advanced_purchase_order_automation.field_res_config_settings__poa_bill_journal_id
+msgid "Vendor Bill Journal"
+msgstr "يومية فواتير الموردين"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Vendor Bill Posting"
+msgstr "ترحيل فاتورة المورد"
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Vendor bill created in %(journal)s (%(amount)s)."
+msgstr "تم إنشاء فاتورة المورد في %(journal)s (%(amount)s)."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Vendor bill posted (%s)."
+msgstr "تم ترحيل فاتورة المورد (%s)."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Vendor bill(s) %s could not be posted."
+msgstr "تعذّر ترحيل فاتورة/فواتير المورد %s."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Warehouse %(wh)s does not belong to company %(company)s."
+msgstr "المستودع %(wh)s لا ينتمي إلى الشركة %(company)s."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Warehouse %s has no receipt operation type."
+msgstr "المستودع %s لا يحتوي على نوع عملية استلام."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/wizard/purchase_automation_wizard.py:0
+#, python-format
+msgid "Warehouse and journal overrides need all selected orders to belong to the same company. Run the companies separately or clear the overrides."
+msgstr "تتطلب تجاوزات المستودع واليوميات أن تنتمي جميع الأوامر المحددة إلى الشركة نفسها. شغّل كل شركة على حدة أو امسح التجاوزات."
+
+#. module: advanced_purchase_order_automation
+#. odoo-python
+#: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
+#, python-format
+msgid "Warehouse override ignored: the order was already confirmed."
+msgstr "تم تجاهل تجاوز المستودع: الأمر مؤكد مسبقًا."
+
+#. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.purchase_automation_wizard_form
+msgid ""
+"order(s) selected.\n"
+"                        Each order is processed in its own transaction savepoint: a failure is\n"
+"                        logged in that order's chatter and the batch continues."
+msgstr ""
+"أمر/أوامر محددة.\n"
+"                        تتم معالجة كل أمر ضمن نقطة حفظ مستقلة في المعاملة: يُسجَّل أي فشل\n"
+"                        في سجل محادثات ذلك الأمر وتستمر المعالجة الجماعية."

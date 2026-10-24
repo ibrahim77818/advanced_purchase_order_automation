@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form: failure banner + status -->
+    <record id="purchase_order_form_inherit_automation" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit.automation</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <div class="alert alert-warning mb-0" role="alert"
+                     attrs="{'invisible': [('poa_state', '!=', 'failed')]}">
+                    <strong>Procurement automation failed: </strong>
+                    <field name="poa_last_error" readonly="1" nolabel="1" class="d-inline"/>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='partner_ref']" position="after">
+                <field name="poa_state" invisible="1"/>
+            </xpath>
+            <xpath expr="//page[@name='purchase_delivery_invoice']//field[@name='payment_term_id']" position="after">
+                <field name="poa_last_run" attrs="{'invisible': [('poa_last_run', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Lists: optional status badge -->
+    <record id="purchase_order_tree_inherit_automation" model="ir.ui.view">
+        <field name="name">purchase.order.tree.inherit.automation</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="after">
+                <field name="poa_state" optional="show" widget="badge"
+                       decoration-success="poa_state == 'done'" decoration-danger="poa_state == 'failed'"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="purchase_order_kpis_tree_inherit_automation" model="ir.ui.view">
+        <field name="name">purchase.order.kpis.tree.inherit.automation</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_kpis_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="after">
+                <field name="poa_state" optional="show" widget="badge"
+                       decoration-success="poa_state == 'done'" decoration-danger="poa_state == 'failed'"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Purchase > Orders > Purchase Orders list -->
+    <record id="purchase_order_view_tree_inherit_automation" model="ir.ui.view">
+        <field name="name">purchase.order.view.tree.inherit.automation</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_status']" position="after">
+                <field name="poa_state" optional="show" widget="badge"
+                       decoration-success="poa_state == 'done'" decoration-danger="poa_state == 'failed'"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Search: filters -->
+    <record id="purchase_order_filter_inherit_automation" model="ir.ui.view">
+        <field name="name">purchase.order.filter.inherit.automation</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='to_approve']" position="after">
+                <separator/>
+                <filter name="poa_failed" string="Automation Failed" domain="[('poa_state', '=', 'failed')]"/>
+                <filter name="poa_done" string="Automated" domain="[('poa_state', '=', 'done')]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="purchase_order_search_inherit_automation" model="ir.ui.view">
+        <field name="name">purchase.order.search.inherit.automation</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_view_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <separator/>
+                <filter name="poa_failed" string="Automation Failed" domain="[('poa_state', '=', 'failed')]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

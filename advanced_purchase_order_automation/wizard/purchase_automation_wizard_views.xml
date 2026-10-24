@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_automation_wizard_form" model="ir.ui.view">
+        <field name="name">purchase.automation.wizard.form</field>
+        <field name="model">purchase.automation.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Run Procurement Automation">
+                <field name="state" invisible="1"/>
+                <field name="company_id" invisible="1"/>
+                <field name="multi_company" invisible="1"/>
+                <field name="purchase_ids" invisible="1"/>
+
+                <!-- Step 1: options -->
+                <div attrs="{'invisible': [('state', '!=', 'draft')]}">
+                    <div class="alert alert-info" role="alert">
+                        <field name="order_count" class="oe_inline" readonly="1"/> order(s) selected.
+                        Each order is processed in its own transaction savepoint: a failure is
+                        logged in that order's chatter and the batch continues.
+                    </div>
+                    <div class="alert alert-warning" role="alert" attrs="{'invisible': [('multi_company', '=', False)]}">
+                        The selection spans several companies: warehouse and journal overrides are
+                        disabled and each company's own settings apply.
+                    </div>
+                    <group>
+                        <group string="Scenario">
+                            <field name="scenario" widget="radio"/>
+                            <field name="backorder_policy"/>
+                            <field name="auto_lots"/>
+                        </group>
+                        <group string="Overrides">
+                            <field name="warehouse_id" options="{'no_create': True}"
+                                   attrs="{'readonly': [('multi_company', '=', True)]}"/>
+                            <field name="bill_journal_id" options="{'no_create': True}"
+                                   attrs="{'readonly': [('multi_company', '=', True)]}"/>
+                            <field name="bill_date"/>
+                            <field name="payment_journal_id" options="{'no_create': True}"
+                                   attrs="{'invisible': [('scenario', '!=', 'bill_paid')], 'readonly': [('multi_company', '=', True)]}"/>
+                            <field name="payment_method_line_id" options="{'no_create': True}"
+                                   attrs="{'invisible': ['|', ('scenario', '!=', 'bill_paid'), ('payment_journal_id', '=', False)]}"/>
+                            <field name="payment_date" attrs="{'invisible': [('scenario', '!=', 'bill_paid')]}"/>
+                        </group>
+                    </group>
+                </div>
+
+                <!-- Step 2: results -->
+                <div attrs="{'invisible': [('state', '!=', 'done')]}">
+                    <div class="d-flex gap-3 mb-3">
+                        <div class="alert alert-success flex-fill mb-0 text-center" role="status">
+                            <h3 class="mb-0"><field name="processed_count"/></h3>Processed
+                        </div>
+                        <div class="alert alert-info flex-fill mb-0 text-center" role="status">
+                            <h3 class="mb-0"><field name="skipped_count"/></h3>Nothing to do
+                        </div>
+                        <div class="alert alert-danger flex-fill mb-0 text-center" role="status">
+                            <h3 class="mb-0"><field name="failed_count"/></h3>Failed
+                        </div>
+                    </div>
+                    <field name="result_html" nolabel="1"/>
+                    <field name="failed_ids" invisible="1"/>
+                </div>
+
+                <footer>
+                    <button name="action_run" string="Run Automation" type="object" class="btn-primary"
+                            data-hotkey="q" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"
+                            attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <button name="action_view_failed" string="Open Failed Orders" type="object" class="btn-primary"
+                            attrs="{'invisible': ['|', ('state', '!=', 'done'), ('failed_count', '=', 0)]}"/>
+                    <button string="Close" class="btn-secondary" special="cancel"
+                            attrs="{'invisible': [('state', '!=', 'done')]}"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_purchase_automation_wizard" model="ir.actions.act_window">
+        <field name="name">Run Procurement Automation...</field>
+        <field name="res_model">purchase.automation.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+        <field name="binding_view_types">list</field>
+        <field name="groups_id" eval="[(4, ref('purchase.group_purchase_user'))]"/>
+    </record>
+</odoo>
