@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-24 18:01+0000\n"
-"PO-Revision-Date: 2026-10-24 18:01+0000\n"
+"POT-Creation-Date: 2026-10-26 08:52+0000\n"
+"PO-Revision-Date: 2026-10-26 08:52+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -58,18 +58,6 @@ msgstr ""
 #: code:addons/advanced_purchase_order_automation/models/purchase_order.py:0
 #, python-format
 msgid "%s service line(s) marked as received."
-msgstr ""
-
-#. module: advanced_purchase_order_automation
-#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
-msgid ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
-"specific.\" groups=\"base.group_multi_company\"/>"
-msgstr ""
-
-#. module: advanced_purchase_order_automation
-#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
-msgid "<span class=\"o_form_label\">Journals</span>"
 msgstr ""
 
 #. module: advanced_purchase_order_automation
@@ -182,8 +170,8 @@ msgstr ""
 #. module: advanced_purchase_order_automation
 #: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
 msgid ""
-"Bill journal (optional) and the bank / cash journal used to pay\n"
-"                                bills in scenario C"
+"Bill journal (optional) and the bank / cash journal used to pay bills in "
+"scenario C"
 msgstr ""
 
 #. module: advanced_purchase_order_automation
@@ -336,6 +324,11 @@ msgid "Journal Entry"
 msgstr ""
 
 #. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
+msgid "Journals"
+msgstr ""
+
+#. module: advanced_purchase_order_automation
 #: model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__res_company__poa_on_confirm_error__log
 msgid "Keep the PO confirmed and log the failure in the chatter"
 msgstr ""
@@ -348,11 +341,6 @@ msgstr ""
 #. module: advanced_purchase_order_automation
 #: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_order__poa_last_run
 msgid "Last Automation Run"
-msgstr ""
-
-#. module: advanced_purchase_order_automation
-#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard____last_update
-msgid "Last Modified on"
 msgstr ""
 
 #. module: advanced_purchase_order_automation
@@ -438,8 +426,8 @@ msgstr ""
 #. module: advanced_purchase_order_automation
 #: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
 msgid ""
-"Only Purchase Administrators trigger the automation; other\n"
-"                                users confirm orders the standard way."
+"Only Purchase Administrators trigger the automation; other users confirm "
+"orders the standard way."
 msgstr ""
 
 #. module: advanced_purchase_order_automation
@@ -727,8 +715,8 @@ msgstr ""
 #. module: advanced_purchase_order_automation
 #: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
 msgid ""
-"Run the scenario as soon as an order is confirmed or approved.\n"
-"                                When off, use the \"Run Procurement Automation\" actions in the list view."
+"Run the scenario as soon as an order is confirmed or approved. When off, use"
+" the \"Run Procurement Automation\" actions in the list view."
 msgstr ""
 
 #. module: advanced_purchase_order_automation

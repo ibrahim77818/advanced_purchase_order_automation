@@ -327,8 +327,9 @@ class PurchaseOrder(models.Model):
         never_backorder = opts.get("backorder_policy", "never") == "never"
         for picking in pickings:
             self._poa_fill_picking(picking, opts)
+            # v17: the immediate-transfer wizard (and its skip_immediate key) no longer exists;
+            # button_validate() only proposes the backorder wizard, which skip_backorder bypasses.
             ctx = {
-                "skip_immediate": True,
                 "skip_backorder": True,
                 "skip_sms": True,
                 "skip_expired": True,
@@ -367,15 +368,20 @@ class PurchaseOrder(models.Model):
             picking.action_confirm()
         if picking.state in ("confirmed", "waiting"):
             picking.action_assign()
-        for move in picking.move_ids.filtered(lambda m: m.state not in ("done", "cancel")):
+        moves = picking.move_ids.filtered(lambda m: m.state not in ("done", "cancel"))
+        for move in moves:
+            # v17: `quantity` replaces `quantity_done` / reserved quantity; its inverse
+            # creates or updates the move lines (one line per unit for serials).
             rounding = move.product_uom.rounding
-            if float_compare(move.quantity_done, move.product_uom_qty, precision_rounding=rounding) < 0:
-                move.quantity_done = move.product_uom_qty
+            if float_compare(move.quantity, move.product_uom_qty, precision_rounding=rounding) < 0:
+                move.quantity = move.product_uom_qty
             if move.has_tracking != "none":
                 self._poa_assign_lots(move, opts)
+        # v17: only moves flagged `picked` are processed by _action_done().
+        moves.picked = True
 
     def _poa_assign_lots(self, move, opts):
-        lines = move.move_line_ids.filtered(lambda ml: ml.qty_done and not ml.lot_id and not ml.lot_name)
+        lines = move.move_line_ids.filtered(lambda ml: ml.quantity and not ml.lot_id and not ml.lot_name)
         if not lines:
             return
         product = move.product_id
@@ -390,7 +396,7 @@ class PurchaseOrder(models.Model):
                 move.picking_type_id.display_name))
         if move.has_tracking == "serial":
             odd = lines.filtered(lambda ml: float_compare(
-                ml.qty_done, 1.0, precision_rounding=ml.product_uom_id.rounding) != 0)
+                ml.quantity, 1.0, precision_rounding=ml.product_uom_id.rounding) != 0)
             if odd:
                 raise UserError(_("Serial-tracked lines of %s must have a done quantity of 1.",
                                   product.display_name))

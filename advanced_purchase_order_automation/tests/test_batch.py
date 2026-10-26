@@ -164,9 +164,7 @@ class TestPurchaseAutomationBatch(PurchaseAutomationCommon):
         po = self._create_po()
         po.button_confirm()
         receipt = self._receipts(po)
-        for move in receipt.move_ids:
-            move.quantity_done = move.product_uom_qty
-        receipt.button_validate()
+        receipt.button_validate()  # v17 validates the reserved quantities directly
         po.action_create_invoice()
         manual_bill = po.invoice_ids
         manual_bill.invoice_date = fields.Date.today()
@@ -182,7 +180,8 @@ class TestPurchaseAutomationBatch(PurchaseAutomationCommon):
         po = self._create_po([(self.product_storable, 10.0, 3.0)])
         po.button_confirm()
         receipt = self._receipts(po)
-        receipt.move_ids.quantity_done = 4.0
+        receipt.move_ids.quantity = 4.0
+        receipt.move_ids.picked = True
         res = receipt.button_validate()
         Form(self.env[res["res_model"]].with_context(res["context"])).save().process()
         backorder = self._receipts(po).filtered(lambda p: p.state != "done")

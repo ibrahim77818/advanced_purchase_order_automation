@@ -8,7 +8,7 @@
         <field name="arch" type="xml">
             <xpath expr="//sheet" position="before">
                 <div class="alert alert-warning mb-0" role="alert"
-                     attrs="{'invisible': [('poa_state', '!=', 'failed')]}">
+                     invisible="poa_state != 'failed'">
                     <strong>Procurement automation failed: </strong>
                     <field name="poa_last_error" readonly="1" nolabel="1" class="d-inline"/>
                 </div>
@@ -17,7 +17,7 @@
                 <field name="poa_state" invisible="1"/>
             </xpath>
             <xpath expr="//page[@name='purchase_delivery_invoice']//field[@name='payment_term_id']" position="after">
-                <field name="poa_last_run" attrs="{'invisible': [('poa_last_run', '=', False)]}"/>
+                <field name="poa_last_run" invisible="not poa_last_run"/>
             </xpath>
         </field>
     </record>

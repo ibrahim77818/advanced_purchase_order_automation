@@ -1,10 +1,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-24 18:01+0000\n"
-"PO-Revision-Date: 2026-10-24 18:01+0000\n"
+"POT-Creation-Date: 2026-10-26 08:52+0000\n"
+"PO-Revision-Date: 2026-10-26 08:52+0000\n"
 "Last-Translator: Ibrahim Yahia\n"
 "Language-Team: Arabic\n"
 "Language: ar\n"
@@ -54,16 +54,6 @@ msgstr "يتطلب %s موافقة مسؤول المشتريات قبل أن ت�
 #, python-format
 msgid "%s service line(s) marked as received."
 msgstr "تم تعليم %s من بنود الخدمات كمستلمة."
-
-#. module: advanced_purchase_order_automation
-#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
-msgid "<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" groups=\"base.group_multi_company\"/>"
-msgstr "<span class=\"fa fa-lg fa-building-o\" title=\"القيم المحددة هنا خاصة بكل شركة.\" groups=\"base.group_multi_company\"/>"
-
-#. module: advanced_purchase_order_automation
-#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
-msgid "<span class=\"o_form_label\">Journals</span>"
-msgstr "<span class=\"o_form_label\">اليوميات</span>"
 
 #. module: advanced_purchase_order_automation
 #: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.purchase_order_form_inherit_automation
@@ -160,12 +150,8 @@ msgstr "يومية الفواتير %(journal)s لا تنتمي إلى %(company
 
 #. module: advanced_purchase_order_automation
 #: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
-msgid ""
-"Bill journal (optional) and the bank / cash journal used to pay\n"
-"                                bills in scenario C"
-msgstr ""
-"يومية فواتير الموردين (اختيارية) ويومية البنك / النقد المستخدمة لسداد\n"
-"                                الفواتير في السيناريو ج"
+msgid "Bill journal (optional) and the bank / cash journal used to pay bills in scenario C"
+msgstr "يومية فواتير الموردين (اختيارية) ويومية البنك / النقد المستخدمة لسداد الفواتير في السيناريو ج"
 
 #. module: advanced_purchase_order_automation
 #. odoo-python
@@ -310,6 +296,11 @@ msgid "Journal Entry"
 msgstr "قيد اليومية"
 
 #. module: advanced_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
+msgid "Journals"
+msgstr "اليوميات"
+
+#. module: advanced_purchase_order_automation
 #: model:ir.model.fields.selection,name:advanced_purchase_order_automation.selection__res_company__poa_on_confirm_error__log
 msgid "Keep the PO confirmed and log the failure in the chatter"
 msgstr "إبقاء أمر الشراء مؤكدًا وتسجيل الفشل في سجل المحادثات"
@@ -323,11 +314,6 @@ msgstr "آخر خطأ في الأتمتة"
 #: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_order__poa_last_run
 msgid "Last Automation Run"
 msgstr "آخر تشغيل للأتمتة"
-
-#. module: advanced_purchase_order_automation
-#: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard____last_update
-msgid "Last Modified on"
-msgstr "آخر تعديل في"
 
 #. module: advanced_purchase_order_automation
 #: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__write_uid
@@ -405,12 +391,8 @@ msgstr "عند حدوث خطأ أثناء التأكيد"
 
 #. module: advanced_purchase_order_automation
 #: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
-msgid ""
-"Only Purchase Administrators trigger the automation; other\n"
-"                                users confirm orders the standard way."
-msgstr ""
-"مسؤولو المشتريات فقط يشغّلون الأتمتة؛ أما بقية\n"
-"                                المستخدمين فيؤكدون الأوامر بالطريقة المعتادة."
+msgid "Only Purchase Administrators trigger the automation; other users confirm orders the standard way."
+msgstr "مسؤولو المشتريات فقط يشغّلون الأتمتة؛ أما بقية المستخدمين فيؤكدون الأوامر بالطريقة المعتادة."
 
 #. module: advanced_purchase_order_automation
 #: model:ir.model.fields,help:advanced_purchase_order_automation.field_res_company__poa_restrict_to_managers model:ir.model.fields,help:advanced_purchase_order_automation.field_res_config_settings__poa_restrict_to_managers
@@ -676,12 +658,8 @@ msgstr "تشغيل الأتمتة تلقائيًا عند تأكيد أمر ال
 
 #. module: advanced_purchase_order_automation
 #: model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
-msgid ""
-"Run the scenario as soon as an order is confirmed or approved.\n"
-"                                When off, use the \"Run Procurement Automation\" actions in the list view."
-msgstr ""
-"تشغيل السيناريو فور تأكيد الأمر أو اعتماده.\n"
-"                                عند إيقافه، استخدم إجراءات \"تشغيل أتمتة المشتريات\" في عرض القائمة."
+msgid "Run the scenario as soon as an order is confirmed or approved. When off, use the \"Run Procurement Automation\" actions in the list view."
+msgstr "تشغيل السيناريو فور تأكيد الأمر أو اعتماده. عند إيقافه، استخدم إجراءات \"تشغيل أتمتة المشتريات\" في عرض القائمة."
 
 #. module: advanced_purchase_order_automation
 #: model:ir.model.fields,field_description:advanced_purchase_order_automation.field_purchase_automation_wizard__scenario model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.purchase_automation_wizard_form model_terms:ir.ui.view,arch_db:advanced_purchase_order_automation.res_config_settings_view_form_purchase_automation
