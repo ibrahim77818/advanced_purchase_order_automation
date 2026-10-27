@@ -1,101 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- v17: settings use <app>/<block>/<setting>; attrs replaced by Python expressions. -->
     <record id="res_config_settings_view_form_purchase_automation" model="ir.ui.view">
         <field name="name">res.config.settings.view.form.inherit.purchase.automation</field>
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="purchase.res_config_settings_view_form_purchase"/>
         <field name="arch" type="xml">
-            <xpath expr="//div[@data-key='purchase']/h2[1]" position="before">
-                <h2>Procurement Automation</h2>
-                <div class="row mt16 o_settings_container" name="purchase_automation_settings">
-                    <div class="col-12 col-lg-6 o_setting_box" id="poa_enabled_box">
-                        <div class="o_setting_left_pane">
-                            <field name="poa_enabled"/>
-                        </div>
-                        <div class="o_setting_right_pane">
-                            <label for="poa_enabled"/>
-                            <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." groups="base.group_multi_company"/>
-                            <div class="text-muted">
-                                Confirm, receive and bill purchase orders automatically
+            <xpath expr="//app[@name='purchase']/block[@name='purchase_setting_container']" position="before">
+                <block title="Procurement Automation" name="purchase_automation_settings">
+                    <setting id="poa_enabled_box" company_dependent="1"
+                             help="Confirm, receive and bill purchase orders automatically">
+                        <field name="poa_enabled"/>
+                        <div class="content-group" invisible="not poa_enabled">
+                            <div class="mt16">
+                                <label for="poa_scenario" string="Scenario" class="o_light_label fw-bold d-block mb-1"/>
+                                <field name="poa_scenario" widget="radio" class="o_light_label"
+                                       required="poa_enabled"/>
                             </div>
-                            <div class="content-group" attrs="{'invisible': [('poa_enabled', '=', False)]}">
-                                <div class="mt16">
-                                    <label for="poa_scenario" string="Scenario" class="o_light_label fw-bold d-block mb-1"/>
-                                    <field name="poa_scenario" widget="radio" class="o_light_label"
-                                           attrs="{'required': [('poa_enabled', '=', True)]}"/>
-                                </div>
-                                <div class="mt8">
-                                    <label for="poa_bill_date_source" class="o_light_label fw-bold d-block mb-1"/>
-                                    <field name="poa_bill_date_source" widget="radio" class="o_light_label"
-                                           options="{'horizontal': true}"/>
-                                </div>
-                                <div class="mt8">
-                                    <label for="poa_backorder_policy" class="o_light_label fw-bold d-block mb-1"/>
-                                    <field name="poa_backorder_policy" widget="radio" class="o_light_label"/>
-                                </div>
+                            <div class="mt8">
+                                <label for="poa_bill_date_source" class="o_light_label fw-bold d-block mb-1"/>
+                                <field name="poa_bill_date_source" widget="radio" class="o_light_label"
+                                       options="{'horizontal': true}"/>
+                            </div>
+                            <div class="mt8">
+                                <label for="poa_backorder_policy" class="o_light_label fw-bold d-block mb-1"/>
+                                <field name="poa_backorder_policy" widget="radio" class="o_light_label"/>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-6 o_setting_box" id="poa_trigger_box"
-                         attrs="{'invisible': [('poa_enabled', '=', False)]}">
-                        <div class="o_setting_left_pane">
-                            <field name="poa_trigger_on_confirm"/>
+                    </setting>
+                    <setting id="poa_trigger_box" invisible="not poa_enabled"
+                             help="Run the scenario as soon as an order is confirmed or approved. When off, use the &quot;Run Procurement Automation&quot; actions in the list view.">
+                        <field name="poa_trigger_on_confirm"/>
+                        <div class="content-group mt16" invisible="not poa_trigger_on_confirm">
+                            <label for="poa_on_confirm_error" class="o_light_label fw-bold d-block mb-1"/>
+                            <field name="poa_on_confirm_error" widget="radio" class="o_light_label"/>
                         </div>
-                        <div class="o_setting_right_pane">
-                            <label for="poa_trigger_on_confirm"/>
-                            <div class="text-muted">
-                                Run the scenario as soon as an order is confirmed or approved.
-                                When off, use the "Run Procurement Automation" actions in the list view.
+                    </setting>
+                    <setting id="poa_restrict_box" invisible="not poa_enabled"
+                             help="Only Purchase Administrators trigger the automation; other users confirm orders the standard way.">
+                        <field name="poa_restrict_to_managers"/>
+                    </setting>
+                    <setting id="poa_journals_box" string="Journals" invisible="not poa_enabled"
+                             help="Bill journal (optional) and the bank / cash journal used to pay bills in scenario C">
+                        <div class="content-group mt16">
+                            <div class="row">
+                                <label for="poa_bill_journal_id" class="col-lg-5 o_light_label"/>
+                                <field name="poa_bill_journal_id" class="col-lg-7"
+                                       options="{'no_create': True}"/>
                             </div>
-                            <div class="content-group mt16" attrs="{'invisible': [('poa_trigger_on_confirm', '=', False)]}">
-                                <label for="poa_on_confirm_error" class="o_light_label fw-bold d-block mb-1"/>
-                                <field name="poa_on_confirm_error" widget="radio" class="o_light_label"/>
+                            <div class="row">
+                                <label for="poa_payment_journal_id" class="col-lg-5 o_light_label"/>
+                                <field name="poa_payment_journal_id" class="col-lg-7"
+                                       options="{'no_create': True}"
+                                       required="poa_enabled and poa_scenario == 'bill_paid'"/>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 o_setting_box" id="poa_restrict_box"
-                         attrs="{'invisible': [('poa_enabled', '=', False)]}">
-                        <div class="o_setting_left_pane">
-                            <field name="poa_restrict_to_managers"/>
-                        </div>
-                        <div class="o_setting_right_pane">
-                            <label for="poa_restrict_to_managers"/>
-                            <div class="text-muted">
-                                Only Purchase Administrators trigger the automation; other
-                                users confirm orders the standard way.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 o_setting_box" id="poa_journals_box"
-                         attrs="{'invisible': [('poa_enabled', '=', False)]}">
-                        <div class="o_setting_left_pane"/>
-                        <div class="o_setting_right_pane">
-                            <span class="o_form_label">Journals</span>
-                            <div class="text-muted">
-                                Bill journal (optional) and the bank / cash journal used to pay
-                                bills in scenario C
-                            </div>
-                            <div class="content-group mt16">
-                                <div class="row">
-                                    <label for="poa_bill_journal_id" class="col-lg-5 o_light_label"/>
-                                    <field name="poa_bill_journal_id" class="col-lg-7"
-                                           options="{'no_create': True}"/>
-                                </div>
-                                <div class="row">
-                                    <label for="poa_payment_journal_id" class="col-lg-5 o_light_label"/>
-                                    <field name="poa_payment_journal_id" class="col-lg-7"
-                                           options="{'no_create': True}"
-                                           attrs="{'required': [('poa_enabled', '=', True), ('poa_scenario', '=', 'bill_paid')]}"/>
-                                </div>
-                                <div class="row" attrs="{'invisible': [('poa_payment_journal_id', '=', False)]}">
-                                    <label for="poa_payment_method_line_id" class="col-lg-5 o_light_label"/>
-                                    <field name="poa_payment_method_line_id" class="col-lg-7"
-                                           options="{'no_create': True}"/>
-                                </div>
+                            <div class="row" invisible="not poa_payment_journal_id">
+                                <label for="poa_payment_method_line_id" class="col-lg-5 o_light_label"/>
+                                <field name="poa_payment_method_line_id" class="col-lg-7"
+                                       options="{'no_create': True}"/>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </setting>
+                </block>
             </xpath>
         </field>
     </record>

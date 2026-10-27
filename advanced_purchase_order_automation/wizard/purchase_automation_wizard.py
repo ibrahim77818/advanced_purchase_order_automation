@@ -157,10 +157,11 @@ class PurchaseAutomationWizard(models.TransientModel):
 
     def action_view_failed(self):
         self.ensure_one()
+        domain = [("id", "in", self.failed_ids.ids)]
         return {
             "type": "ir.actions.act_window",
             "name": _("Failed Orders"),
             "res_model": "purchase.order",
-            "view_mode": "tree,form",
-            "domain": [("id", "in", self.failed_ids.ids)],
+            "view_mode": "list,form",
+            "domain": domain,
         }

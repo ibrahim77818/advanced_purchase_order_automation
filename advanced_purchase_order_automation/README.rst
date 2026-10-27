@@ -2,7 +2,7 @@
 Purchase Order Automation
 =========================
 
-Odoo 16 (Community & Enterprise) module that runs the procure-to-pay chain in
+Odoo 19 (Community & Enterprise) module that runs the procure-to-pay chain in
 one go: **confirm the PO -> validate the receipt -> create the vendor bill ->
 post it -> pay it**, either when a buyer clicks *Confirm Order* or as a batch
 action on any selection of RFQs / purchase orders.
@@ -64,9 +64,9 @@ Technical notes
   Serialization failures / deadlocks are re-raised so Odoo can retry.
 * Each order is row-locked (``FOR UPDATE NOWAIT``) so two users cannot automate
   the same order at once.
-* Receipts: incoming pickings are confirmed, reserved, quantities set to the
-  demand, then ``button_validate()`` is called with ``skip_immediate``,
-  ``skip_backorder``, ``skip_sms`` and ``skip_expired``. If the picking is still
+* Receipts: incoming pickings are confirmed and reserved, each move's ``quantity``
+  is set to the demand and flagged ``picked``, then ``button_validate()`` is called
+  with ``skip_backorder``, ``skip_sms`` and ``skip_expired``. If the picking is still
   not done (e.g. Enterprise quality checks), the order fails with a clear message.
 * Service lines with manual received quantities are marked received so that
   "received quantities" billing control does not block the bill.

@@ -11,13 +11,13 @@
                 <field name="purchase_ids" invisible="1"/>
 
                 <!-- Step 1: options -->
-                <div attrs="{'invisible': [('state', '!=', 'draft')]}">
+                <div invisible="state != 'draft'">
                     <div class="alert alert-info" role="alert">
                         <field name="order_count" class="oe_inline" readonly="1"/> order(s) selected.
                         Each order is processed in its own transaction savepoint: a failure is
                         logged in that order's chatter and the batch continues.
                     </div>
-                    <div class="alert alert-warning" role="alert" attrs="{'invisible': [('multi_company', '=', False)]}">
+                    <div class="alert alert-warning" role="alert" invisible="not multi_company">
                         The selection spans several companies: warehouse and journal overrides are
                         disabled and each company's own settings apply.
                     </div>
@@ -29,21 +29,21 @@
                         </group>
                         <group string="Overrides">
                             <field name="warehouse_id" options="{'no_create': True}"
-                                   attrs="{'readonly': [('multi_company', '=', True)]}"/>
+                                   readonly="multi_company"/>
                             <field name="bill_journal_id" options="{'no_create': True}"
-                                   attrs="{'readonly': [('multi_company', '=', True)]}"/>
+                                   readonly="multi_company"/>
                             <field name="bill_date"/>
                             <field name="payment_journal_id" options="{'no_create': True}"
-                                   attrs="{'invisible': [('scenario', '!=', 'bill_paid')], 'readonly': [('multi_company', '=', True)]}"/>
+                                   invisible="scenario != 'bill_paid'" readonly="multi_company"/>
                             <field name="payment_method_line_id" options="{'no_create': True}"
-                                   attrs="{'invisible': ['|', ('scenario', '!=', 'bill_paid'), ('payment_journal_id', '=', False)]}"/>
-                            <field name="payment_date" attrs="{'invisible': [('scenario', '!=', 'bill_paid')]}"/>
+                                   invisible="scenario != 'bill_paid' or not payment_journal_id"/>
+                            <field name="payment_date" invisible="scenario != 'bill_paid'"/>
                         </group>
                     </group>
                 </div>
 
                 <!-- Step 2: results -->
-                <div attrs="{'invisible': [('state', '!=', 'done')]}">
+                <div invisible="state != 'done'">
                     <div class="d-flex gap-3 mb-3">
                         <div class="alert alert-success flex-fill mb-0 text-center" role="status">
                             <h3 class="mb-0"><field name="processed_count"/></h3>Processed
@@ -61,13 +61,13 @@
 
                 <footer>
                     <button name="action_run" string="Run Automation" type="object" class="btn-primary"
-                            data-hotkey="q" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                            data-hotkey="q" invisible="state != 'draft'"/>
                     <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"
-                            attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                            invisible="state != 'draft'"/>
                     <button name="action_view_failed" string="Open Failed Orders" type="object" class="btn-primary"
-                            attrs="{'invisible': ['|', ('state', '!=', 'done'), ('failed_count', '=', 0)]}"/>
+                            invisible="state != 'done' or not failed_count"/>
                     <button string="Close" class="btn-secondary" special="cancel"
-                            attrs="{'invisible': [('state', '!=', 'done')]}"/>
+                            invisible="state != 'done'"/>
                 </footer>
             </form>
         </field>
@@ -80,6 +80,6 @@
         <field name="target">new</field>
         <field name="binding_model_id" ref="purchase.model_purchase_order"/>
         <field name="binding_view_types">list</field>
-        <field name="groups_id" eval="[(4, ref('purchase.group_purchase_user'))]"/>
+        <field name="group_ids" eval="[(4, ref('purchase.group_purchase_user'))]"/>
     </record>
 </odoo>

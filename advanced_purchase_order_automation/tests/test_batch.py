@@ -11,8 +11,8 @@ class TestPurchaseAutomationBatch(PurchaseAutomationCommon):
     """Mass-action channel: wizard, server action, isolation and overrides."""
 
     @classmethod
-    def setUpClass(cls, chart_template_ref=None):
-        super().setUpClass(chart_template_ref=chart_template_ref)
+    def setUpClass(cls):
+        super().setUpClass()
         # The batch channel must work even when the confirm hook is off.
         cls.company.poa_trigger_on_confirm = False
 
@@ -164,9 +164,7 @@ class TestPurchaseAutomationBatch(PurchaseAutomationCommon):
         po = self._create_po()
         po.button_confirm()
         receipt = self._receipts(po)
-        for move in receipt.move_ids:
-            move.quantity_done = move.product_uom_qty
-        receipt.button_validate()
+        receipt.button_validate()  # v17 validates the reserved quantities directly
         po.action_create_invoice()
         manual_bill = po.invoice_ids
         manual_bill.invoice_date = fields.Date.today()
@@ -182,7 +180,8 @@ class TestPurchaseAutomationBatch(PurchaseAutomationCommon):
         po = self._create_po([(self.product_storable, 10.0, 3.0)])
         po.button_confirm()
         receipt = self._receipts(po)
-        receipt.move_ids.quantity_done = 4.0
+        receipt.move_ids.quantity = 4.0
+        receipt.move_ids.picked = True
         res = receipt.button_validate()
         Form(self.env[res["res_model"]].with_context(res["context"])).save().process()
         backorder = self._receipts(po).filtered(lambda p: p.state != "done")
@@ -212,7 +211,9 @@ class TestPurchaseAutomationBatch(PurchaseAutomationCommon):
         self.assertEqual(po.state, "draft")
 
     def test_multi_company_batch(self):
-        company_2 = self.company_data_2["company"]
+        # v18: the second company is created on demand.
+        company_data_2 = self.setup_other_company()
+        company_2 = company_data_2["company"]
         company_2.write({"poa_enabled": True, "poa_scenario": "bill_posted",
                          "poa_trigger_on_confirm": False})
         self.company.poa_scenario = "bill_draft"
@@ -237,7 +238,7 @@ class TestPurchaseAutomationBatch(PurchaseAutomationCommon):
         self.assertEqual(wizard.processed_count, 2, wizard.result_html)
         self.assertEqual(po_1.invoice_ids.company_id, self.company)
         self.assertEqual(po_2.invoice_ids.company_id, company_2)
-        self.assertEqual(po_2.invoice_ids.journal_id, self.company_data_2["default_journal_purchase"])
+        self.assertEqual(po_2.invoice_ids.journal_id, company_data_2["default_journal_purchase"])
         self.assertTrue(all(b.state == "posted" for b in orders.invoice_ids))
 
     def test_open_wizard_action(self):

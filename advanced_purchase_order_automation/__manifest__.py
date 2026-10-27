@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Purchase Order Automation",
-    "version": "16.0.1.0.0",
+    "version": "19.0.1.0.0",
     "summary": "One-click procurement: confirm PO, receive goods, create / post / pay "
                "vendor bills — on confirmation or as a batch action.",
     "description": """
@@ -16,7 +16,7 @@ Automates the procure-to-pay chain from a single confirmation or a mass action:
 Features: per-company settings, manager-only restriction, batch wizard with
 per-run overrides (scenario, warehouse, bill journal, payment journal, dates),
 record-level savepoints with chatter logging of failures, and unit tests.
-Works on Odoo 16 Community and Enterprise.
+Works on Odoo 19 Community and Enterprise.
 """,
     "category": "Inventory/Purchase",
     "author": "Ibrahim Yahia",

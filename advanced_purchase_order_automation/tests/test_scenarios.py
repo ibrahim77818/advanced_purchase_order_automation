@@ -56,7 +56,8 @@ class TestPurchaseAutomationScenarios(PurchaseAutomationCommon):
         self.assertEqual(payments.journal_id, self.bank_journal)
         self.assertEqual(payments.payment_type, "outbound")
         self.assertAlmostEqual(payments.amount, bill.amount_total)
-        self.assertEqual(payments.state, "posted")
+        # v18: payment states are draft / in_process / paid (no "posted").
+        self.assertIn(payments.state, ("in_process", "paid"))
 
     def test_scenario_c_with_payment_method(self):
         method = self.bank_journal.outbound_payment_method_line_ids[:1]
@@ -115,7 +116,7 @@ class TestPurchaseAutomationScenarios(PurchaseAutomationCommon):
             "email": "poa.user@example.com",
             "company_id": self.company.id,
             "company_ids": [Command.set(self.company.ids)],
-            "groups_id": [Command.set(base_groups)],
+            "group_ids": [Command.set(base_groups)],
         })
         manager = self.env["res.users"].create({
             "name": "POA Purchase Manager",
@@ -123,7 +124,7 @@ class TestPurchaseAutomationScenarios(PurchaseAutomationCommon):
             "email": "poa.manager@example.com",
             "company_id": self.company.id,
             "company_ids": [Command.set(self.company.ids)],
-            "groups_id": [Command.set(base_groups + [self.env.ref("purchase.group_purchase_manager").id])],
+            "group_ids": [Command.set(base_groups + [self.env.ref("purchase.group_purchase_manager").id])],
         })
 
         po_user = self._create_po()
@@ -153,7 +154,7 @@ class TestPurchaseAutomationScenarios(PurchaseAutomationCommon):
             "email": "poa.junior@example.com",
             "company_id": self.company.id,
             "company_ids": [Command.set(self.company.ids)],
-            "groups_id": [Command.set([
+            "group_ids": [Command.set([
                 self.env.ref("purchase.group_purchase_user").id,
                 self.env.ref("stock.group_stock_user").id,
             ])],
