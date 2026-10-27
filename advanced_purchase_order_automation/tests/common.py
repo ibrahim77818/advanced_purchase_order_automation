@@ -12,8 +12,9 @@ class PurchaseAutomationCommon(AccountTestInvoicingCommon):
     """
 
     @classmethod
-    def setUpClass(cls, chart_template_ref=None):
-        super().setUpClass(chart_template_ref=chart_template_ref)
+    def setUpClass(cls):
+        # v18: the chart template is chosen with @setup_chart_template, not an argument.
+        super().setUpClass()
         cls.company = cls.company_data["company"]
         cls.purchase_journal = cls.company_data["default_journal_purchase"]
         cls.bank_journal = cls.company_data["default_journal_bank"]
@@ -36,18 +37,18 @@ class PurchaseAutomationCommon(AccountTestInvoicingCommon):
             "purchase_method": "receive",
         }
         cls.product_storable = cls.env["product.product"].create(dict(
-            product_vals, name="POA Storable", default_code="POA-STO", detailed_type="product",
+            product_vals, name="POA Storable", default_code="POA-STO", type="consu", is_storable=True,
             standard_price=10.0))
         cls.product_consu = cls.env["product.product"].create(dict(
-            product_vals, name="POA Consumable", default_code="POA-CON", detailed_type="consu",
+            product_vals, name="POA Consumable", default_code="POA-CON", type="consu",
             purchase_method="purchase"))
         cls.product_service = cls.env["product.product"].create(dict(
-            product_vals, name="POA Service", default_code="POA-SRV", detailed_type="service"))
+            product_vals, name="POA Service", default_code="POA-SRV", type="service"))
         cls.product_serial = cls.env["product.product"].create(dict(
-            product_vals, name="POA Serial", default_code="POA-SN", detailed_type="product",
+            product_vals, name="POA Serial", default_code="POA-SN", type="consu", is_storable=True,
             tracking="serial"))
         cls.product_lot = cls.env["product.product"].create(dict(
-            product_vals, name="POA Lot", default_code="POA-LOT", detailed_type="product",
+            product_vals, name="POA Lot", default_code="POA-LOT", type="consu", is_storable=True,
             tracking="lot"))
 
     @classmethod
@@ -79,7 +80,7 @@ class PurchaseAutomationCommon(AccountTestInvoicingCommon):
         receipts = self._receipts(po)
         self.assertTrue(receipts, "The order should have a receipt")
         self.assertTrue(all(p.state == "done" for p in receipts), "All receipts should be done")
-        for line in po.order_line.filtered(lambda l: l.product_id.type in ("product", "consu")):
+        for line in po.order_line.filtered(lambda l: l.product_id.type == "consu"):
             self.assertEqual(line.qty_received, line.product_qty)
 
     def assertBill(self, po, state):

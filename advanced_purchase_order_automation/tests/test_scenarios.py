@@ -56,7 +56,8 @@ class TestPurchaseAutomationScenarios(PurchaseAutomationCommon):
         self.assertEqual(payments.journal_id, self.bank_journal)
         self.assertEqual(payments.payment_type, "outbound")
         self.assertAlmostEqual(payments.amount, bill.amount_total)
-        self.assertEqual(payments.state, "posted")
+        # v18: payment states are draft / in_process / paid (no "posted").
+        self.assertIn(payments.state, ("in_process", "paid"))
 
     def test_scenario_c_with_payment_method(self):
         method = self.bank_journal.outbound_payment_method_line_ids[:1]

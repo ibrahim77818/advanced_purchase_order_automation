@@ -161,6 +161,6 @@ class PurchaseAutomationWizard(models.TransientModel):
             "type": "ir.actions.act_window",
             "name": _("Failed Orders"),
             "res_model": "purchase.order",
-            "view_mode": "tree,form",
+            "view_mode": "list,form",
             "domain": [("id", "in", self.failed_ids.ids)],
         }

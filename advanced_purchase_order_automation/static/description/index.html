@@ -1,4 +1,4 @@
-<!-- Odoo Apps description page for advanced_purchase_order_automation (Odoo 16.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
+<!-- Odoo Apps description page for advanced_purchase_order_automation (Odoo 18.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
 <section style="max-width:1120px;margin:0 auto;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#2b2b33;">
 
   <!-- ============================== HERO ============================== -->
@@ -7,7 +7,7 @@
     <h1 style="font-size:40px;line-height:1.15;font-weight:700;margin:0 0 14px;color:#ffffff;">Purchase Order Automation</h1>
     <p style="font-size:19px;line-height:1.55;max-width:760px;margin:0 0 24px;color:#ffffff;opacity:.95;">Confirm the order, validate the receipt, create the vendor bill, post it and register the payment &ndash; with the <b>Confirm Order</b> button or as a batch on any selection of RFQs. Each order runs in its own savepoint, so one bad order never blocks the others.</p>
     <div>
-      <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 16.0</span>
+      <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 18.0</span>
       <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Community &amp; Enterprise</span>
       <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">31 automated tests</span>
       <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">English &amp; Arabic</span>
@@ -29,9 +29,9 @@
   <p style="font-size:16px;color:#555;margin:0 0 18px;">When goods arrive as ordered and the vendor is paid on receipt, the procure-to-pay chain is the same five clicks every time. This module does them for you, safely.</p>
   <div style="display:flex;flex-wrap:wrap;margin:0 -10px;">
     <div style="flex:1 1 440px;margin:10px;border:1px solid #f1d6d6;background:#fff8f8;border-radius:14px;padding:24px 26px;">
-      <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 16</h3>
+      <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 18</h3>
       <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
-        <li><b>Confirm Order</b> only creates the receipt; someone still has to open it, set quantities and <b>Validate</b>.</li>
+        <li><b>Confirm Order</b> only creates the receipt; someone still has to open it and click <b>Validate</b>.</li>
         <li>The vendor bill is created by hand with <b>Create Bill</b>, then needs a <b>Bill Date</b> before it can be confirmed.</li>
         <li>Payment is a separate <b>Register Payment</b> step on every bill.</li>
         <li>The <b>Create Vendor Bills</b> list action only creates draft bills; it does not receive goods, post or pay.</li>
@@ -58,19 +58,19 @@
   <div style="display:flex;flex-wrap:wrap;margin:0 -8px;">
     <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">1</div><div style="font-weight:700;margin-bottom:4px;">Enable</div><div style="font-size:14px;color:#555;">Tick <b>Purchase Automation</b> in Purchase settings and pick scenario A, B or C.</div></div>
     <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">2</div><div style="font-weight:700;margin-bottom:4px;">Configure</div><div style="font-size:14px;color:#555;">Choose the bill date rule, backorder policy, error policy and the payment journal.</div></div>
-    <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">3</div><div style="font-weight:700;margin-bottom:4px;">Run</div><div style="font-size:14px;color:#555;">Click <b>Confirm Order</b>, or select orders and use one of the two <b>Action</b> menu entries.</div></div>
+    <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">3</div><div style="font-weight:700;margin-bottom:4px;">Run</div><div style="font-size:14px;color:#555;">Click <b>Confirm Order</b>, or select orders and use one of the two <b>Actions</b> menu entries.</div></div>
     <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #cfe7e7;background:#f4fbfb;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#017E84;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">4</div><div style="font-weight:700;margin-bottom:4px;">Review</div><div style="font-size:14px;color:#555;">Read the result screen; fix failed orders from the <b>Automation Failed</b> filter and run again.</div></div>
   </div>
 
   <!-- ============================== FEATURES ============================== -->
   <h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Features</h2>
-  <p style="font-size:16px;color:#555;margin:0 0 4px;">All screenshots were taken on Odoo 16 with the standard demo data (vendors Wood Corner, Gemini Furniture, Azure Interior, Ready Mat) and the generic chart of accounts.</p>
+  <p style="font-size:16px;color:#555;margin:0 0 4px;">All screenshots were taken on Odoo 18 with the standard demo data (vendors Wood Corner, Gemini Furniture, Azure Interior, Ready Mat) and the generic chart of accounts.</p>
 
   <div style="margin:44px 0 0;">
     <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Menus</div>
     <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Where to find everything</h3>
-    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Settings live in <b>Purchase &rsaquo; Configuration &rsaquo; Settings &rsaquo; Procurement Automation</b>. Select orders in <b>Purchase &rsaquo; Orders &rsaquo; Requests for Quotation</b> or <b>Purchase Orders</b> and open <b>Action</b>: <b>Run Procurement Automation...</b> opens the batch wizard, <b>Run Procurement Automation (Company Defaults)</b> runs immediately with the company settings. Both lists get an <b>Automation Status</b> column.</p>
-    <img src="poa_02_list_actions.png" alt="Requests for Quotation list with four orders selected and the Action menu showing Run Procurement Automation and Run Procurement Automation (Company Defaults)" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Settings live in <b>Purchase &rsaquo; Configuration &rsaquo; Settings &rsaquo; Procurement Automation</b>. Select orders in <b>Purchase &rsaquo; Orders &rsaquo; Requests for Quotation</b> or <b>Purchase Orders</b> and open the <b>Actions</b> menu (&#9881;): <b>Run Procurement Automation...</b> opens the batch wizard, <b>Run Procurement Automation (Company Defaults)</b> runs immediately with the company settings. Both lists get an <b>Automation Status</b> column.</p>
+    <img src="poa_02_list_actions.png" alt="Requests for Quotation list with four orders selected and the Actions menu showing Run Procurement Automation and Run Procurement Automation (Company Defaults)" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
   </div>
 
   <div style="margin:44px 0 0;">
@@ -83,8 +83,8 @@
   <div style="margin:44px 0 0;">
     <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 2</div>
     <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Confirm Order does the rest</h3>
-    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">With <b>Run on PO Confirmation</b> on, clicking <b>Confirm Order</b> on P00001 (scenario B) validated the receipt, created the bill in <b>Vendor Bills</b> and posted it. <b>Received</b> and <b>Billed</b> match the ordered quantities and the chatter lists every step. With two-step approval, the automation starts when the manager clicks <b>Approve Order</b>.</p>
-    <img src="poa_05_po_confirmed.png" alt="Purchase order P00001 after Confirm Order: 1 receipt and 1 vendor bill, received and billed quantities filled, chatter note Purchase automation completed with the receipt, bill creation and posting" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">With <b>Run on PO Confirmation</b> on, confirming P00006 (scenario B) validated the receipt, created the bill in <b>Vendor Bills</b> and posted it. <b>Received</b> and <b>Billed</b> match the ordered quantities and the chatter lists every step. With two-step approval, the automation starts when the manager clicks <b>Approve Order</b>.</p>
+    <img src="poa_05_po_confirmed.png" alt="Purchase order P00006 after confirmation: 1 receipt and 1 vendor bill, received and billed quantities filled, chatter note Purchase automation completed with the receipt, bill creation and posting" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
   </div>
 
   <div style="margin:44px 0 0;">
@@ -97,8 +97,8 @@
   <div style="margin:44px 0 0;">
     <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 4</div>
     <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">A result screen you can act on</h3>
-    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The wizard ends with three counters &ndash; <b>Processed</b>, <b>Nothing to do</b>, <b>Failed</b> &ndash; and the exact error per failed order. Here P00002, P00003 and P00008 went all the way to payment while P00009, which holds a lot-tracked product without lot numbers, was rolled back. <b>Open Failed Orders</b> lists them.</p>
-    <img src="poa_04_wizard_result.png" alt="Purchase Automation result: 3 processed, 0 nothing to do, 1 failed, with the receipt validation error for P00009" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The wizard ends with three counters &ndash; <b>Processed</b>, <b>Nothing to do</b>, <b>Failed</b> &ndash; and the exact error per failed order. Here P00002, P00003 and P00007 went all the way to payment while P00001, which holds a lot-tracked Drawer without lot numbers, was rolled back. <b>Open Failed Orders</b> lists them.</p>
+    <img src="poa_04_wizard_result.png" alt="Purchase Automation result: 3 processed, 0 nothing to do, 1 failed, with the receipt validation error for P00001" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
   </div>
 
   <div style="margin:44px 0 0;">
@@ -112,23 +112,23 @@
   <div style="margin:44px 0 0;">
     <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 6</div>
     <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Failures are visible, explained and safe</h3>
-    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">A failed order gets a warning banner with the step and the reason, a chatter note that confirms everything of that run was rolled back, and the <b>Failed</b> status. P00009 is still an RFQ with no receipt, bill or payment &ndash; nothing half-done to clean up.</p>
-    <img src="poa_08_po_failed.png" alt="RFQ P00009 with the Procurement automation failed banner and the chatter note explaining the lot number issue and the rollback" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);margin-bottom:22px;"/>
-    <img src="poa_09_rfq_failed_filter.png" alt="Requests for Quotation filtered with Automation Failed, showing P00009 with the red Failed status" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">A failed order gets a warning banner with the step and the reason, a chatter note that confirms everything of that run was rolled back, and the <b>Failed</b> status. P00001 is still an RFQ with no receipt, bill or payment &ndash; nothing half-done to clean up.</p>
+    <img src="poa_08_po_failed.png" alt="RFQ P00001 with the Procurement automation failed banner and the chatter note explaining the lot number issue and the rollback" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);margin-bottom:22px;"/>
+    <img src="poa_09_rfq_failed_filter.png" alt="Requests for Quotation filtered with Automation Failed, showing P00001 with the red Failed status" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
     <div style="font-size:13px;color:#777;margin:6px 0 0;">The <b>Automation Failed</b> and <b>Automated</b> filters are added to the purchase search view.</div>
   </div>
 
   <div style="margin:44px 0 0;">
     <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 7</div>
     <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Automation Status next to Billing Status</h3>
-    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The <b>Purchase Orders</b> list shows <b>Processed</b> / <b>Failed</b> badges beside Odoo&rsquo;s <b>Billing Status</b>, so you see at a glance that every automated order is <b>Fully Billed</b>. The form also shows the <b>Last Automation Run</b> in <b>Other Information</b>.</p>
-    <img src="poa_10_po_list.png" alt="Purchase Orders list with Billing Status Fully Billed and Automation Status Processed for four orders" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The <b>Purchase Orders</b> list shows <b>Processed</b> / <b>Failed</b> badges beside Odoo&rsquo;s <b>Billing Status</b>, so you see at a glance that every automated order is <b>Fully Billed</b> while the other demo orders still show <b>Nothing to Bill</b>. The form also shows the <b>Last Automation Run</b> in <b>Other Information</b>.</p>
+    <img src="poa_10_po_list.png" alt="Purchase Orders list: the four automated orders are Fully Billed and Processed, the other orders show Nothing to Bill" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
   </div>
 
   <div style="margin:44px 0 0;">
     <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 8</div>
     <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Fully translated to Arabic</h3>
-    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">All 139 terms &ndash; settings, wizard, actions, statuses, chatter notes and error messages &ndash; ship with an Arabic translation, displayed right-to-left. A <code>.pot</code> template is included for other languages.</p>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">All 137 terms &ndash; settings, wizard, actions, statuses, chatter notes and error messages &ndash; ship with an Arabic translation, displayed right-to-left. A <code>.pot</code> template is included for other languages.</p>
     <img src="poa_11_settings_ar.png" alt="Procurement Automation settings in Arabic, right-to-left layout" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);margin-bottom:22px;"/>
     <img src="poa_12_wizard_ar.png" alt="Run Procurement Automation wizard in Arabic, right-to-left layout" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
   </div>
@@ -150,7 +150,7 @@
   <h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Built for real-world corner cases</h2>
   <p style="font-size:16px;color:#555;margin:0 0 18px;">Every case below is handled in the code and most are covered by a test.</p>
   <div style="display:flex;flex-wrap:wrap;margin:0 -8px;font-size:15px;line-height:1.55;">
-    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Lot and serial numbers</b><br/><span style="color:#555;">Tracked products stop the order with a clear message, unless the wizard&rsquo;s <b>Generate Lot/Serial Numbers</b> creates unique names like <code>P00009-FURN-5555-0001</code>.</span></div>
+    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Lot and serial numbers</b><br/><span style="color:#555;">Tracked products stop the order with a clear message, unless the wizard&rsquo;s <b>Generate Lot/Serial Numbers</b> creates unique names like <code>P00001-FURN-8855-0001</code>.</span></div>
     <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Services</b><br/><span style="color:#555;">Service lines with manual received quantities are marked received, so &ldquo;billed on received quantities&rdquo; does not block the bill.</span></div>
     <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Backorders</b><br/><span style="color:#555;">Choose to cancel remainders or keep them as backorders. Backorders left from an earlier manual receipt are validated and billed in full.</span></div>
     <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Two-step approval</b><br/><span style="color:#555;">Orders waiting in <b>To Approve</b> start the automation when a manager approves them; the batch reports orders the user may not approve as failed.</span></div>
@@ -179,10 +179,10 @@
   <h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Technical details</h2>
   <table style="width:100%;border-collapse:collapse;font-size:15px;">
     <tbody>
-      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;vertical-align:top;">Odoo version</td><td style="padding:10px 14px;overflow-wrap:anywhere;">16.0, Community and Enterprise</td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;vertical-align:top;">Odoo version</td><td style="padding:10px 14px;overflow-wrap:anywhere;">18.0, Community and Enterprise</td></tr>
       <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:30%;color:#777;vertical-align:top;">Depends on</td><td style="padding:10px 14px;overflow-wrap:anywhere;"><code>purchase_stock</code>, <code>account</code></td></tr>
       <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;vertical-align:top;">Python dependency</td><td style="padding:10px 14px;overflow-wrap:anywhere;">None</td></tr>
-      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:30%;color:#777;vertical-align:top;">Menus &amp; actions</td><td style="padding:10px 14px;overflow-wrap:anywhere;">No new menu. <b>Action &rsaquo; Run Procurement Automation...</b> (wizard) and <b>Action &rsaquo; Run Procurement Automation (Company Defaults)</b> (server action) on the RFQ and Purchase Order lists</td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:30%;color:#777;vertical-align:top;">Menus &amp; actions</td><td style="padding:10px 14px;overflow-wrap:anywhere;">No new menu. <b>Actions &rsaquo; Run Procurement Automation...</b> (wizard) and <b>Actions &rsaquo; Run Procurement Automation (Company Defaults)</b> (server action) on the RFQ and Purchase Order lists</td></tr>
       <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;vertical-align:top;">Settings</td><td style="padding:10px 14px;overflow-wrap:anywhere;">Purchase &rsaquo; Configuration &rsaquo; Settings &rsaquo; Procurement Automation (stored on <code>res.company</code>)</td></tr>
       <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:30%;color:#777;vertical-align:top;">Models</td><td style="padding:10px 14px;overflow-wrap:anywhere;">New wizard <code>purchase.automation.wizard</code>; fields added to <code>res.company</code>, <code>res.config.settings</code>, <code>purchase.order</code> (Automation Status, Last Automation Error / Run) and <code>account.move</code> (Created by Purchase Automation)</td></tr>
       <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;vertical-align:top;">Hooks</td><td style="padding:10px 14px;overflow-wrap:anywhere;"><code>button_approve()</code> (called by <code>button_confirm()</code> and manager approval) and <code>_prepare_invoice()</code>; native <code>button_validate()</code>, <code>action_create_invoice()</code>, <code>action_post()</code> and <code>account.payment.register</code></td></tr>
